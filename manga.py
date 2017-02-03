@@ -33,9 +33,9 @@ for row in data:
         'group_type': 'survey',
         'coords': [row['ra'], row['dec']],
         'location': {
-            'standard': '{0}/jpeg/{1}.jpg'.format(url_stub, name),
-            'inverted': '{0}/inverted/{1}.jpg'.format(url_stub, name),
-            'thumbnail': '{0}/thumbnail/{1}.jpg'.format(url_stub, name)
+            'standard': '{0}/jpeg/{1}.jpeg'.format(url_stub, name),
+            'inverted': '{0}/inverted/{1}.jpeg'.format(url_stub, name),
+            'thumbnail': '{0}/thumbnail/{1}.jpeg'.format(url_stub, name)
         },
         'metadata': {
             'survey': 'missing_manga',
