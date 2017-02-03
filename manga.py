@@ -8,7 +8,7 @@ from astropy.table import Table
 metadata_path, s3_image_path, out_path = sys.argv[1:]
 
 data = Table.read(metadata_path)
-manafest = []
+manifest = []
 
 class MyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -47,8 +47,12 @@ for row in data:
                 'star': 0,
             },
             'nsa_id': "nsa_{}".format(row['NSA_NSAID']),
+            'MANGAID': str(row['MANGAID']),
+            'NSA_Z': str(row['NSA_Z']),
+            'petroR50_r': str(row['petroR50_r']),
+            'petroR90_r': str(row['petroR90_r'])
         }
     }
-    manafest.append(r)
+    manifest.append(r)
 with open(os.path.join(out_path, 'manifest.json'), 'w') as f:
-    json.dump(manafest, f)
+    json.dump(manifest, f)
